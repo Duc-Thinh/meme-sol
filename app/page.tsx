@@ -186,9 +186,9 @@ export default function Home() {
       <div className="w-full h-[240px] bg-black flex items-center justify-center">
         <Swiper
           slidesPerView={6}
-          spaceBetween={30}
+          spaceBetween={10}
           loop={true}
-          speed={3000}
+          speed={2000}
           autoplay={{
             delay: 0,
             disableOnInteraction: false,
@@ -201,18 +201,18 @@ export default function Home() {
             padding: '20px 0',
           }}
         >
-          {logosLoop.map((src, idx) => (
+          {logosLoop.map((item, idx) => (
             <SwiperSlide key={idx}>
-              <div className="flex items-center justify-center h-full hover:scale-110 transition-transform duration-300">
+              <div className="rounded-[4px] flex flex-col border-2 border-white p-1 items-center justify-center h-full hover:scale-110 transition-transform duration-300">
                 <Image 
                   alt={`logo-${idx}`} 
-                  src={`/icons/${src}`} 
-                  width={60} 
-                  height={60}
-                  className="opacity-50 hover:opacity-100 transition-opacity duration-300"
+                  src={`/icons/${item.src}`} 
+                  width={50} 
+                  height={50}
+                  className="hover:opacity-100 transition-opacity duration-300"
                 />
                 <span>
-
+                  {item.label ? <span className="text-white ml-2">{item.label}</span> : null}
                 </span>
               </div>
             </SwiperSlide>
