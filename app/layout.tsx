@@ -1,8 +1,16 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Ubuntu_Sans } from "next/font/google";
 import "./globals.css";
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
 import ContextProvider from '@/context'
+
+const ubuntuSans = Ubuntu_Sans({
+  variable: "--font-ubuntu-sans",
+  subsets: ["latin"],
+  weight: ["400", "700"],
+});
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -29,7 +37,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${ubuntuSans.variable} ${geistSans.variable} ${geistMono.variable} antialiased`}
       >
       <ContextProvider>{children}</ContextProvider>
       </body>
